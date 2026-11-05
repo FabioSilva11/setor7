@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46bac2d5043ca5c4dbcaf61919c11792, type: 3}
+  m_Name: MockData
+  m_EditorClassIdentifier: Setor07.UI::Setor07.UI.InterfaceMockData
+  operatorName: KIRITO
+  role: OPERADOR
+  coins: 45.200
+  diamonds: 1.540
+  mode: PARTIDA RANQUEADA
+  formation: SOLO
+  backpackUsed: 0
+  backpackCapacity: 150
+  masterVolume: 80
+  gameVolume: 85
+  chatVolume: 70
+  storeItems:
+  - title: Traje Espectro Noturno
+    rarity: "LEND\xC1RIO"
+    description: "Conjunto t\xE1tico furtivo com efeitos hologr\xE1ficos reativos."
+    diamonds: 1.200
+    coins: 
+  - title: Conjunto Caveira Neon
+    rarity: "\xC9PICO"
+    description: "Visual urbano com ilumina\xE7\xE3o fluorescente e jaqueta preta."
+    diamonds: 650
+    coins: 20.000
+  - title: Jaqueta Urbana Street
+    rarity: "\xC9PICO"
+    description: Estilo casual moderno de alta mobilidade para combate.
+    diamonds: 
+    coins: 10.000
+  - title: "M\xE1scara T\xE1tica Carbono"
+    rarity: RARO
+    description: "Prote\xE7\xE3o bal\xEDstica visual com respirador pressurizado."
+    diamonds: 199
+    coins: 5.000

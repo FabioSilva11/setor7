@@ -1,0 +1,7 @@
+{
+    "name": "Blocks.Gameplay.Shooter.Tests",
+    "references": ["Blocks.Gameplay.Shooter"],
+    "includePlatforms": ["Editor"],
+    "optionalUnityReferences": ["TestAssemblies"],
+    "autoReferenced": false
+}

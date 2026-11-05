@@ -1,0 +1,117 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:ext="UnityUIToolkit.Extensions" editor-extension-mode="False">
+    <Style src="QuickJoin.uss"/>
+    <Style src="../../../../UI/Setor07Icons.uss"/>
+    <ui:VisualElement name="connection-panel" class="lobby-native-connection">
+        <ui:VisualElement name="setor-lobby">
+            <ui:Image name="lobby-character-preview" picking-mode="Ignore"/>
+            <ui:VisualElement class="lobby-header">
+                <ui:VisualElement class="lobby-profile">
+                    <ui:VisualElement class="lobby-avatar" picking-mode="Ignore">
+                        <ui:VisualElement class="lobby-icon lobby-icon--user" picking-mode="Ignore"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="lobby-profile-copy">
+                        <ui:Label text="KIRITO" class="lobby-profile-name"/>
+                        <ui:Label text="OPERADOR" class="lobby-eyebrow"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement class="lobby-brand" picking-mode="Ignore">
+                    <ui:Label text="SETOR" class="lobby-brand-word"/>
+                    <ui:Label text="/" class="lobby-brand-slash"/>
+                    <ui:Label text="07" class="lobby-brand-number"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="lobby-utilities">
+                    <ui:Button enabled="false" tooltip="Áudio" class="lobby-utility">
+                        <ui:VisualElement class="lobby-icon icon-BotaoAudio" picking-mode="Ignore"/>
+                    </ui:Button>
+                    <ui:Button enabled="false" tooltip="Ajustes" class="lobby-utility">
+                        <ui:VisualElement class="lobby-icon lobby-icon--gear" picking-mode="Ignore"/>
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ext:CollapsibleSection name="lobby-menu" title-text="MENU" expanded="false" class="lobby-menu-section">
+                <ui:ScrollView mode="Vertical" horizontal-scroller-visibility="Hidden" class="lobby-menu-scroll">
+                    <ui:VisualElement class="lobby-menu-content">
+                        <ui:Button enabled="false" class="lobby-menu-item">
+                            <ui:VisualElement class="lobby-icon lobby-icon--cart" picking-mode="Ignore"/>
+                            <ui:Label text="LOJA" picking-mode="Ignore"/>
+                        </ui:Button>
+                        <ui:Button enabled="false" class="lobby-menu-item">
+                            <ui:VisualElement class="lobby-icon lobby-icon--ticket" picking-mode="Ignore"/>
+                            <ui:Label text="PASSE DE BATALHA" picking-mode="Ignore"/>
+                        </ui:Button>
+                        <ui:Button enabled="false" class="lobby-menu-item">
+                            <ui:VisualElement class="lobby-icon lobby-icon--list" picking-mode="Ignore"/>
+                            <ui:Label text="MISSÕES" picking-mode="Ignore"/>
+                        </ui:Button>
+                        <ui:Button enabled="false" class="lobby-menu-item">
+                            <ui:VisualElement class="lobby-icon lobby-icon--flag" picking-mode="Ignore"/>
+                            <ui:Label text="EVENTOS" picking-mode="Ignore"/>
+                        </ui:Button>
+                        <ui:Button enabled="false" class="lobby-menu-item">
+                            <ui:VisualElement class="lobby-icon lobby-icon--box" picking-mode="Ignore"/>
+                            <ui:Label text="COFRE" picking-mode="Ignore"/>
+                        </ui:Button>
+                        <ui:Button enabled="false" class="lobby-menu-item">
+                            <ui:VisualElement class="lobby-icon lobby-icon--pistol" picking-mode="Ignore"/>
+                            <ui:Label text="ARMAS" picking-mode="Ignore"/>
+                        </ui:Button>
+                        <ui:Button enabled="false" class="lobby-menu-item">
+                            <ui:VisualElement class="lobby-icon lobby-icon--user" picking-mode="Ignore"/>
+                            <ui:Label text="PREDEFINIÇÃO" picking-mode="Ignore"/>
+                        </ui:Button>
+                        <ui:Button enabled="false" class="lobby-menu-item">
+                            <ui:VisualElement class="lobby-icon lobby-icon--lab" picking-mode="Ignore"/>
+                            <ui:Label text="LAB" picking-mode="Ignore"/>
+                        </ui:Button>
+                        <ui:Button enabled="false" class="lobby-menu-item">
+                            <ui:VisualElement class="lobby-icon lobby-icon--gift" picking-mode="Ignore"/>
+                            <ui:Label text="RECOMPENSAS" picking-mode="Ignore"/>
+                        </ui:Button>
+                        <ui:Button enabled="false" class="lobby-menu-item">
+                            <ui:VisualElement class="lobby-icon lobby-icon--mail" picking-mode="Ignore"/>
+                            <ui:Label text="MENSAGENS" picking-mode="Ignore"/>
+                        </ui:Button>
+                        <ui:Button enabled="false" class="lobby-menu-item">
+                            <ui:VisualElement class="lobby-icon lobby-icon--friends" picking-mode="Ignore"/>
+                            <ui:Label text="AMIGOS" picking-mode="Ignore"/>
+                        </ui:Button>
+                        <ui:Button enabled="false" class="lobby-menu-item">
+                            <ui:VisualElement class="lobby-icon lobby-icon--crown" picking-mode="Ignore"/>
+                            <ui:Label text="CLASSIFICAÇÃO" picking-mode="Ignore"/>
+                        </ui:Button>
+                        <ui:Foldout name="lobby-current-session" text="CONEXÃO LOCAL" value="false" class="lobby-session">
+                            <ui:Button name="client-button" text="ENTRAR COMO CLIENTE" class="lobby-client-button"/>
+                        </ui:Foldout>
+                    </ui:VisualElement>
+                </ui:ScrollView>
+            </ext:CollapsibleSection>
+            <ui:VisualElement class="lobby-character-caption" picking-mode="Ignore">
+                <ui:VisualElement class="lobby-caption-line"/>
+                <ui:Label text="SENTINELA"/>
+                <ui:Label text="01" class="lobby-character-number"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="lobby-launch">
+                <ui:VisualElement name="lobby-mode" picking-mode="Ignore">
+                    <ui:Label text="TREINO LOCAL" class="lobby-mode-eyebrow"/>
+                    <ui:Label text="CAMPO DE TREINO" class="lobby-mode-title"/>
+                </ui:VisualElement>
+                <ext:CollapsibleSection name="lobby-party-panel" title-text="SOLO" expanded="false" class="lobby-party-section">
+                    <ui:VisualElement class="lobby-party-content">
+                        <ui:Label text="FORMAÇÃO" class="lobby-eyebrow"/>
+                        <ui:VisualElement class="lobby-party-choices">
+                            <ui:Button text="SOLO" enabled="false" class="lobby-party-selected"/>
+                            <ui:Button text="DUPLA" enabled="false"/>
+                            <ui:Button text="ESQUADRÃO" enabled="false"/>
+                        </ui:VisualElement>
+                        <ui:Toggle text="Aceitar pedidos de equipe" value="false" enabled="false"/>
+                        <ui:Toggle text="Preencher vagas" value="false" enabled="false"/>
+                    </ui:VisualElement>
+                </ext:CollapsibleSection>
+                <ui:VisualElement name="lobby-play">
+                    <ui:Button name="host-button" text="JOGAR" tooltip="Iniciar treino local"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Button name="return-lobby-button" text="VOLTAR AO LOBBY" tooltip="Sair da partida e voltar ao lobby"/>
+</ui:UXML>

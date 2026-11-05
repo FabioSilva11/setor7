@@ -1,0 +1,21 @@
+# Preserve source and asset bytes, including their original line endings.
+* -text
+
+# Binary source assets do not need text diffs or merge attempts.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.tga binary
+*.tif binary
+*.tiff binary
+*.psd binary
+*.exr binary
+*.fbx binary
+*.blend binary
+*.wav binary
+*.mp3 binary
+*.ogg binary
+*.mp4 binary
+*.ttf binary
+*.otf binary
+*.bytes binary

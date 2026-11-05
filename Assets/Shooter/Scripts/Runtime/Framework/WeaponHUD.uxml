@@ -1,0 +1,144 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Shooter/Scripts/Runtime/Framework/WeaponHUD.uss?fileID=7433441132597879392&amp;guid=bbc435f537f5943b29f02366a419c599&amp;type=3#WeaponHUD"/>
+    <Style src="../../../../UI/Setor07Icons.uss"/>
+    <ui:VisualElement name="reticle-container" picking-mode="Ignore">
+        <ui:VisualElement name="player-reticle" picking-mode="Ignore"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="shooter-hud" picking-mode="Ignore">
+        <ui:VisualElement name="map-frame" class="hud-panel" picking-mode="Ignore">
+            <ui:VisualElement class="hud-map icon-Trajeto" picking-mode="Ignore"/>
+            <ui:Label text="MAPA INDISPONÍVEL" class="hud-map-caption" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="weapon-stack" picking-mode="Ignore">
+            <ui:VisualElement name="weapon-info-container" class="hud-panel" picking-mode="Ignore">
+                <ui:Label name="weapon-type-label" picking-mode="Ignore"/>
+                <ui:Image name="weapon-icon" picking-mode="Ignore"/>
+                <ui:Label name="ammo-label" picking-mode="Ignore"/>
+                <ui:Label text="RECARREGAR" class="hud-reload-caption" picking-mode="Ignore"/>
+                <ui:ProgressBar name="player-ammo-bar" class="blocks-progress-bar blocks-ammo-bar" picking-mode="Ignore"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="hud-weapon-slots" picking-mode="Ignore">
+                <ui:VisualElement name="previous-weapon" tooltip="Arma anterior" class="hud-weapon-slot" picking-mode="Ignore"><ui:VisualElement class="hud-icon icon-Rifle1" picking-mode="Ignore"/><ui:Label text="ARMA 2" picking-mode="Ignore"/></ui:VisualElement>
+                <ui:VisualElement name="next-weapon" tooltip="Próxima arma" class="hud-weapon-slot" picking-mode="Ignore"><ui:VisualElement class="hud-icon icon-Pistol" picking-mode="Ignore"/><ui:Label text="PISTOLA" picking-mode="Ignore"/></ui:VisualElement>
+                <ui:VisualElement class="hud-weapon-slot" picking-mode="Ignore"><ui:VisualElement class="hud-icon icon-Fist" picking-mode="Ignore"/><ui:Label text="PUNHOS" picking-mode="Ignore"/></ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="health-info-container" picking-mode="Ignore">
+            <ui:Label text="PV" class="hud-health-caption" picking-mode="Ignore"/>
+            <ui:ProgressBar name="player-health-bar" class="blocks-progress-bar" picking-mode="Ignore"/>
+            <ui:ProgressBar name="player-stamina-bar" class="blocks-progress-bar" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="move-indicator" class="icon-ControleDeMovimento" picking-mode="Ignore">
+            <ui:VisualElement class="icon-Analogico" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:Button name="open-backpack" tooltip="Mochila" class="hud-control" style="left: 45px; bottom: 242px; width: 60px; height: 60px;">
+            <ui:VisualElement class="hud-icon icon-Bag" picking-mode="Ignore"/>
+            <ui:Label text="MOCHILA" class="hud-control-caption" picking-mode="Ignore"/>
+        </ui:Button>
+        <ui:VisualElement name="audio" tooltip="Áudio" class="hud-control" style="left: 192px; top: 28px; width: 44px; height: 44px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-BotaoAudio" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="microphone" tooltip="Microfone" class="hud-control" style="left: 246px; top: 28px; width: 44px; height: 44px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-BotaoMicrofone" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="chat" tooltip="Chat" class="hud-control" style="left: 192px; top: 82px; width: 44px; height: 44px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-BotaoChat" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="mark" tooltip="Marcar" class="hud-control" style="left: 246px; top: 82px; width: 44px; height: 44px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-BotaoMarcar" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="emotes" tooltip="Emotes" class="hud-control" style="left: 192px; top: 136px; width: 44px; height: 44px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-BotaoEmotes" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="camera" tooltip="Câmera" class="hud-control" style="left: 246px; top: 136px; width: 44px; height: 44px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-BotaoCamera" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="settings" tooltip="Ajustes" class="hud-control" style="right: 314px; top: 28px; width: 48px; height: 48px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-BotaoAjustes" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="run" tooltip="Correr" class="hud-control" style="left: 167px; bottom: 127px; width: 58px; height: 58px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-Correr" picking-mode="Ignore"/>
+            <ui:Label text="CORRER" class="hud-control-caption" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="heal" tooltip="Curar" class="hud-control" style="left: 164px; bottom: 217px; width: 54px; height: 54px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-Curar" picking-mode="Ignore"/>
+            <ui:Label text="CURAR" class="hud-control-caption" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="grenade" tooltip="Granada" class="hud-control" style="right: 358px; bottom: 81px; width: 56px; height: 56px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-Granada" picking-mode="Ignore"/>
+            <ui:Label text="GRANADA" class="hud-control-caption" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="reload" tooltip="Recarregar" class="hud-control" style="right: 74px; bottom: 196px; width: 56px; height: 56px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-Recarregar" picking-mode="Ignore"/>
+            <ui:Label text="RECARREGAR" class="hud-control-caption" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="aim" tooltip="Mirar" class="hud-control" style="right: 178px; bottom: 172px; width: 62px; height: 62px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-Mirar" picking-mode="Ignore"/>
+            <ui:Label text="MIRAR" class="hud-control-caption" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="interact" tooltip="Interagir" class="hud-control" style="right: 254px; bottom: 180px; width: 54px; height: 54px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-BotaoInteragir" picking-mode="Ignore"/>
+            <ui:Label text="INTERAGIR" class="hud-control-caption" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="fire" tooltip="Atirar" class="hud-control hud-control--accent" style="right: 47px; bottom: 91px; width: 92px; height: 92px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-Atirar" picking-mode="Ignore"/>
+            <ui:Label text="ATIRAR" class="hud-control-caption" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="jump" tooltip="Pular" class="hud-control" style="right: 52px; bottom: 21px; width: 53px; height: 53px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-Pular" picking-mode="Ignore"/>
+            <ui:Label text="PULAR" class="hud-control-caption" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="crouch" tooltip="Agachar" class="hud-control" style="right: 135px; bottom: 21px; width: 53px; height: 53px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-Agachar" picking-mode="Ignore"/>
+            <ui:Label text="AGACHAR" class="hud-control-caption" picking-mode="Ignore"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="prone" tooltip="Deitar" class="hud-control" style="right: 218px; bottom: 21px; width: 53px; height: 53px;" picking-mode="Ignore">
+            <ui:VisualElement class="hud-icon icon-Deitar" picking-mode="Ignore"/>
+            <ui:Label text="DEITAR" class="hud-control-caption" picking-mode="Ignore"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="notification-container" class="notification-container" picking-mode="Ignore"/>
+    <ui:VisualElement name="backpack-overlay" picking-mode="Ignore">
+        <ui:VisualElement class="backpack-panel">
+            <ui:VisualElement class="backpack-header">
+                <ui:Label text="MOCHILA" class="backpack-title"/>
+                <ui:Label text="CAPACIDADE  — / —" class="backpack-capacity"/>
+                <ui:Button name="close-backpack" text="×" tooltip="Fechar mochila" class="backpack-close"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="backpack-content">
+                <ui:VisualElement class="backpack-equipment">
+                    <ui:Label text="EQUIPAMENTO" class="backpack-heading"/>
+                    <ui:VisualElement class="backpack-gear">
+                        <ui:VisualElement class="hud-weapon-slot"><ui:VisualElement class="hud-icon icon-Vest"/><ui:Label text="COLETE"/></ui:VisualElement>
+                        <ui:VisualElement class="hud-weapon-slot"><ui:VisualElement class="hud-icon icon-Helmet"/><ui:Label text="CAPACETE"/></ui:VisualElement>
+                        <ui:VisualElement class="hud-weapon-slot"><ui:VisualElement class="hud-icon icon-Bag"/><ui:Label text="MOCHILA"/></ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="backpack-weapon backpack-weapon--active">
+                        <ui:Label text="ARMA EQUIPADA" class="backpack-heading"/>
+                        <ui:Image name="backpack-weapon-icon"/>
+                        <ui:Label name="backpack-weapon-name" text="SEM ARMA"/>
+                        <ui:Label name="backpack-weapon-ammo"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="backpack-weapon"><ui:Label text="ARMA LONGA 2" class="backpack-heading"/><ui:Label text="SEM ARMA" class="backpack-empty"/></ui:VisualElement>
+                    <ui:VisualElement class="hud-weapon-slots">
+                        <ui:VisualElement class="hud-weapon-slot"><ui:VisualElement class="hud-icon icon-Pistol"/><ui:Label text="PISTOLA"/></ui:VisualElement>
+                        <ui:VisualElement class="hud-weapon-slot"><ui:VisualElement class="hud-icon icon-Fist"/><ui:Label text="PUNHOS"/></ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement class="backpack-inventory">
+                    <ui:VisualElement class="backpack-tabs">
+                        <ui:Button name="items-tab" text="ITENS" class="backpack-tab backpack-tab--selected"/>
+                        <ui:Button name="devices-tab" text="DISPOSITIVOS" class="backpack-tab"/>
+                    </ui:VisualElement>
+                    <ui:Label name="backpack-empty-message" text="Nenhum item coletado." class="backpack-empty"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="message-overlay" picking-mode="Ignore">
+        <ui:Label name="message-label" text="RESPAWN IN" picking-mode="Ignore"/>
+        <ui:VisualElement name="message-divider" picking-mode="Ignore"/>
+        <ui:Label name="countdown-label" text="05" picking-mode="Ignore"/>
+    </ui:VisualElement>
+</ui:UXML>
+

@@ -1,0 +1,5 @@
+{
+  "name": "Setor07.UI",
+  "references": ["Unity.ugui"],
+  "rootNamespace": "Setor07.UI"
+}

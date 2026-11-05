@@ -1,0 +1,16 @@
+{
+    "name": "UnityUIToolkitExtensions.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:9ee68b2f38bf7f4418701e4ac76fb98b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

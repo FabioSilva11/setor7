@@ -1,0 +1,5 @@
+{
+  "name": "Setor07.UI.Editor",
+  "references": ["Setor07.UI", "Unity.ugui", "UnityUIExtensions"],
+  "includePlatforms": ["Editor"]
+}

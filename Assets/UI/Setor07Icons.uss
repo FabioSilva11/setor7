@@ -1,0 +1,133 @@
+/* Official Lucide icon subset. See Lucide/LICENSE.txt and Lucide/README.md. */
+
+.icon-BotaoAudio {
+    background-image: url("Lucide/Icons/volume-2.png");
+}
+
+.icon-BotaoMicrofone {
+    background-image: url("Lucide/Icons/mic.png");
+}
+
+.icon-BotaoChat, .lobby-icon--chat {
+    background-image: url("Lucide/Icons/message-square.png");
+}
+
+.icon-BotaoMarcar {
+    background-image: url("Lucide/Icons/map-pin.png");
+}
+
+.icon-BotaoEmotes {
+    background-image: url("Lucide/Icons/face-slightly-smiling.png");
+}
+
+.icon-BotaoCamera {
+    background-image: url("Lucide/Icons/camera.png");
+}
+
+.icon-BotaoAjustes, .lobby-icon--gear {
+    background-image: url("Lucide/Icons/settings.png");
+}
+
+.icon-Correr {
+    background-image: url("Lucide/Icons/footprints.png");
+}
+
+.icon-Curar {
+    background-image: url("Lucide/Icons/cross.png");
+}
+
+.icon-Recarregar {
+    background-image: url("Lucide/Icons/rotate-cw.png");
+}
+
+.icon-Mirar {
+    background-image: url("Lucide/Icons/crosshair.png");
+}
+
+.icon-BotaoInteragir {
+    background-image: url("Lucide/Icons/hand.png");
+}
+
+.icon-Pular {
+    background-image: url("Lucide/Icons/arrow-up.png");
+}
+
+.icon-Bag {
+    background-image: url("Lucide/Icons/backpack.png");
+}
+
+.lobby-icon--user {
+    background-image: url("Lucide/Icons/user-round.png");
+}
+
+.lobby-icon--friends {
+    background-image: url("Lucide/Icons/user-round-group.png");
+}
+
+.lobby-icon--mail {
+    background-image: url("Lucide/Icons/mail.png");
+}
+
+.lobby-icon--gift {
+    background-image: url("Lucide/Icons/gift.png");
+}
+
+.lobby-icon--down {
+    background-image: url("Lucide/Icons/download.png");
+}
+
+.lobby-icon--star {
+    background-image: url("Lucide/Icons/star.png");
+}
+
+.lobby-icon--crown {
+    background-image: url("Lucide/Icons/crown.png");
+}
+
+.lobby-icon--gem {
+    background-image: url("Lucide/Icons/gem.png");
+}
+
+.lobby-icon--cart {
+    background-image: url("Lucide/Icons/shopping-cart.png");
+}
+
+.lobby-icon--ticket {
+    background-image: url("Lucide/Icons/tickets.png");
+}
+
+.lobby-icon--list {
+    background-image: url("Lucide/Icons/list-checks.png");
+}
+
+.lobby-icon--box {
+    background-image: url("Lucide/Icons/package.png");
+}
+
+.lobby-icon--flag {
+    background-image: url("Lucide/Icons/flag.png");
+}
+
+.lobby-icon--plus {
+    background-image: url("Lucide/Icons/plus.png");
+}
+
+.lobby-icon--eye {
+    background-image: url("Lucide/Icons/eye.png");
+}
+
+.lobby-icon--lab {
+    background-image: url("Lucide/Icons/flask-conical.png");
+}
+
+.lobby-icon--wifi {
+    background-image: url("Lucide/Icons/wifi.png");
+}
+
+.lobby-icon--battery {
+    background-image: url("Lucide/Icons/battery-full.png");
+}
+
+.lobby-icon--arrow {
+    background-image: url("Lucide/Icons/chevron-down.png");
+}

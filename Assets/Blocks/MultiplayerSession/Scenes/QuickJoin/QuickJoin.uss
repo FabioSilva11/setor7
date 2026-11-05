@@ -1,0 +1,242 @@
+/* Setor 07 / quiet, character-first lobby. Runtime uses native session controls. */
+.lobby-native-connection, #setor-lobby {
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+}
+#setor-lobby {
+    position: relative;
+    background-color: rgb(11, 16, 20);
+    color: rgb(239, 241, 235);
+}
+#setor-lobby Label {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: rgb(239, 241, 235);
+}
+#setor-lobby Button {
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: rgb(239, 241, 235);
+}
+#setor-lobby Button:disabled { opacity: 0.60; }
+.lobby-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    background-size: contain;
+    -unity-background-image-tint-color: rgb(239, 241, 235);
+}
+#lobby-character-preview {
+    position: absolute;
+    left: 24%;
+    right: 23%;
+    top: 6%;
+    bottom: 7%;
+    background-color: transparent;
+    -unity-background-scale-mode: scale-to-fit;
+}
+.lobby-header {
+    position: absolute;
+    left: 34px;
+    right: 34px;
+    top: 25px;
+    height: 40px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.lobby-profile { flex-direction: row; align-items: center; }
+.lobby-avatar {
+    width: 34px;
+    height: 34px;
+    border-width: 1px;
+    border-color: rgb(58, 69, 74);
+    align-items: center;
+    justify-content: center;
+    margin-right: 11px;
+}
+.lobby-avatar .lobby-icon { width: 18px; height: 18px; }
+#setor-lobby .lobby-profile-name {
+    font-size: 13px;
+    -unity-font-style: bold;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+#setor-lobby .lobby-eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: rgb(131, 145, 150);
+}
+.lobby-brand {
+    position: absolute;
+    left: 50%;
+    margin-left: -64px;
+    width: 128px;
+    height: 40px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#setor-lobby .lobby-brand-word { font-size: 11px; letter-spacing: 3px; }
+#setor-lobby .lobby-brand-slash { font-size: 19px; color: rgb(200, 246, 107); margin: 0 8px; }
+#setor-lobby .lobby-brand-number { font-size: 21px; -unity-font-style: bold; letter-spacing: 1px; }
+.lobby-utilities { flex-direction: row; align-items: center; }
+#setor-lobby .lobby-utility { width: 36px; height: 36px; align-items: center; justify-content: center; margin-left: 8px; }
+.lobby-utility .lobby-icon { width: 18px; height: 18px; }
+
+/* The library's collapsible controls are explicitly styled for player builds. */
+#setor-lobby .collapsibleSection__header { flex-direction: row; align-items: center; }
+#setor-lobby .collapsibleSection__title { flex-grow: 1; }
+#setor-lobby .collapsibleSection__chevron {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    background-image: url("../../../../UI/Lucide/Icons/chevron-down.png");
+    background-size: contain;
+    -unity-background-image-tint-color: rgb(153, 167, 171);
+    rotate: 0deg;
+}
+#setor-lobby .collapsibleSection--expanded > .collapsibleSection__header .collapsibleSection__chevron { rotate: 180deg; }
+#setor-lobby .collapsibleSection__body { overflow: hidden; max-height: 0; }
+#setor-lobby .collapsibleSection--expanded > .collapsibleSection__body { max-height: 390px; }
+#lobby-menu {
+    position: absolute;
+    left: 34px;
+    top: 94px;
+    width: 210px;
+}
+#lobby-menu > .collapsibleSection__header {
+    height: 35px;
+    width: 100px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(64, 76, 80);
+}
+#setor-lobby #lobby-menu > .collapsibleSection__header .collapsibleSection__title {
+    font-size: 10px;
+    letter-spacing: 2px;
+    -unity-font-style: bold;
+}
+#lobby-menu.collapsibleSection--expanded > .collapsibleSection__header {
+    width: 210px;
+    border-bottom-color: rgb(200, 246, 107);
+}
+.lobby-menu-scroll {
+    height: 285px;
+    max-height: 285px;
+    background-color: rgba(11, 16, 20, 0.98);
+}
+.lobby-menu-content { padding: 8px 7px 10px 0; }
+#setor-lobby .lobby-menu-item {
+    flex-direction: row;
+    align-items: center;
+    height: 34px;
+    min-height: 34px;
+    flex-shrink: 0;
+    padding: 0 7px;
+}
+.lobby-menu-item .lobby-icon { width: 16px; height: 16px; margin-right: 12px; }
+#setor-lobby .lobby-menu-item Label { font-size: 10px; letter-spacing: 0.5px; }
+.lobby-session {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top-width: 1px;
+    border-top-color: rgb(40, 51, 56);
+}
+.lobby-session > Toggle { margin: 0; }
+#setor-lobby .lobby-session > Toggle Label { font-size: 9px; color: rgb(153, 167, 171); letter-spacing: 0.5px; }
+#setor-lobby .lobby-client-button {
+    min-height: 36px;
+    font-size: 9px;
+    margin-top: 7px;
+    border-width: 1px;
+    border-color: rgb(56, 70, 76);
+}
+.lobby-current-session-content .blocks-modal { padding: 7px; border-radius: 0; background-color: rgb(17, 25, 30); }
+#setor-lobby .lobby-current-session-content Label { font-size: 10px; }
+.lobby-current-session-content .blocks-button { min-height: 32px; }
+
+.lobby-character-caption {
+    position: absolute;
+    left: 37%;
+    bottom: 30px;
+    flex-direction: row;
+    align-items: center;
+}
+.lobby-caption-line { width: 22px; height: 1px; background-color: rgb(74, 89, 94); margin-right: 9px; }
+#setor-lobby .lobby-character-caption Label { font-size: 8px; letter-spacing: 1.6px; color: rgb(131, 145, 150); }
+#setor-lobby .lobby-character-caption .lobby-character-number { margin-left: 10px; color: rgb(200, 246, 107); }
+#lobby-launch {
+    position: absolute;
+    right: 34px;
+    bottom: 30px;
+    width: 246px;
+}
+#lobby-mode { margin-bottom: 13px; }
+#setor-lobby .lobby-mode-eyebrow { font-size: 8px; letter-spacing: 1.5px; color: rgb(153, 167, 171); margin-bottom: 5px; }
+#setor-lobby .lobby-mode-title { font-size: 16px; letter-spacing: 0.4px; -unity-font-style: bold; }
+.lobby-party-section { margin-bottom: 12px; }
+.lobby-party-section > .collapsibleSection__header {
+    height: 30px;
+    border-top-width: 1px;
+    border-top-color: rgb(44, 57, 63);
+}
+#setor-lobby .lobby-party-section .collapsibleSection__title { font-size: 9px; letter-spacing: 1px; color: rgb(153, 167, 171); }
+.lobby-party-content { background-color: rgb(14, 22, 27); padding: 12px 9px; }
+.lobby-party-choices { flex-direction: row; margin-top: 7px; margin-bottom: 8px; }
+#setor-lobby .lobby-party-choices Button {
+    min-width: 0;
+    flex-grow: 1;
+    flex-basis: 0;
+    height: 32px;
+    font-size: 8px;
+    border-width: 1px;
+    border-color: rgb(44, 57, 63);
+}
+#setor-lobby .lobby-party-choices .lobby-party-selected { border-color: rgb(200, 246, 107); color: rgb(200, 246, 107); }
+#setor-lobby .lobby-party-content Toggle Label { font-size: 9px; color: rgb(153, 167, 171); }
+#lobby-play { width: 100%; height: 58px; }
+.lobby-quickjoin, .lobby-quickjoin > .blocks-modal { width: 100%; height: 100%; flex-grow: 1; margin: 0; padding: 0; border-width: 0; border-radius: 0; background-color: transparent; }
+#lobby-play .blocks-header { display: none; }
+#lobby-play #host-button, #lobby-play #QuickJoinButton {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    border-radius: 0;
+    background-color: rgb(200, 246, 107);
+    color: rgb(11, 16, 20);
+    font-size: 22px;
+    -unity-font-style: bold;
+    letter-spacing: 3px;
+}
+#lobby-play #host-button:hover:enabled, #lobby-play #QuickJoinButton:hover:enabled { background-color: rgb(218, 255, 151); }
+#lobby-play #host-button:active:enabled, #lobby-play #QuickJoinButton:active:enabled { background-color: rgb(173, 219, 81); }
+#lobby-play #host-button:disabled, #lobby-play #QuickJoinButton:disabled { opacity: 1; background-color: rgb(83, 101, 55); color: rgb(191, 208, 170); font-size: 15px; letter-spacing: 1px; }
+
+/* Outside connection-panel: remains reachable after the lobby is hidden. */
+#return-lobby-button {
+    display: none;
+    position: absolute;
+    left: 34px;
+    top: 164px;
+    width: 140px;
+    height: 28px;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(11, 16, 20, 0.72);
+    border-width: 1px;
+    border-color: rgba(239, 241, 235, 0.30);
+    border-radius: 0;
+    color: rgb(239, 241, 235);
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}
+#return-lobby-button:hover { border-color: rgb(200, 246, 107); color: rgb(200, 246, 107); }
