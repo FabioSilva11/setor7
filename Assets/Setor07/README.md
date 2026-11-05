@@ -1,12 +1,22 @@
 # Setor / 07 — interface visual
 
-Abra `Scenes/Interface.unity` e pressione Play. A tela de carregamento espera `Resources.LoadAsync` do prefab e a atualização do Canvas antes de revelar o lobby. O componente **InterfaceBootstrap**, no Canvas, permite editar o tempo mínimo e definir uma imagem de fundo opcional.
+Abra `Scenes/Interface.unity` e pressione Play. A tela de carregamento espera `Resources.LoadAsync` do prefab e a atualização do Canvas antes de revelar o lobby. O componente **InterfaceBootstrap**, no Canvas, permite editar o tempo mínimo inicial e definir uma imagem de fundo opcional.
+
+## Solo e JOGAR
+
+Clique na formação para abrir o seletor. **Solo** seleciona SOLO e fecha o painel; **Duo** e **Squad** continuam visíveis e desativados. O × fecha o seletor.
+
+**JOGAR** mostra o loading antes de carregar `Assets/Shooter/TestScenes/[BB] Shooter.unity` de forma assíncrona. A tela permanece opaca até o host existente conectar, o jogador local aparecer, sua câmera estar ativa e a arma inicial estar equipada. Os controles ficam bloqueados durante essa preparação; cliques repetidos não iniciam novas partidas. Uma falha oferece **VOLTAR AO LOBBY**.
+
+Este fluxo usa a conexão host já existente no projeto. Não implementa busca automática de adversários, ranking ou equipes aliadas. A configuração de rede original permanece preservada.
+
+O menu **Setor 07 / Connect Solo interface interactions** atualiza somente as referências dos botões no prefab existente. Ele não recria o galpão nem as telas. O helper Android inclui Interface e Shooter para manter o mesmo fluxo na build.
 
 ## Editar as telas
 
 Abra `Resources/Setor07/Interface.prefab` em Prefab Mode e selecione **InterfacePresentation / Preview Screen**: Lobby, Formation, Settings, Inventory, Store, Events ou Vault. O prefab é visível para edição; o carregamento oculta a instância imediatamente ao criá-la e só a revela depois de atualizar seu layout.
 
-No Play Mode, o objeto `Interface(Clone)` tem a mesma seleção **Preview Screen** para revisar os painéis. Os botões não têm ações: nenhuma partida, compra, resgate, ajuste real ou conexão de rede é iniciado. A seleção de telas é uma ferramenta de revisão no Inspector.
+No Play Mode, o objeto `Interface(Clone)` tem a mesma seleção **Preview Screen** para revisar os painéis. Formação Solo e JOGAR têm as ações descritas acima. Loja, cofre, eventos, amigos, mensagens, passe e ajustes continuam como apresentação visual, sem compras, resgates ou alterações reais.
 
 `MockData.asset` contém nome, saldos, modo, formação, volumes e produtos simulados. Campos principais são aplicados ao iniciar a apresentação. Para regenerar textos do catálogo, use **Setor 07 / Generate HTML interface assets**. Este comando recria o prefab e a cena; faça cópia das personalizações manuais antes de executá-lo. Para ajustes de layout, edite diretamente os RectTransforms, Texts, Images e Buttons do prefab.
 

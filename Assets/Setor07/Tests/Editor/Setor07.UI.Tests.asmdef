@@ -1,6 +1,6 @@
 {
   "name": "Setor07.UI.Tests",
-  "references": ["Setor07.UI", "Unity.ugui"],
+  "references": ["Setor07.UI", "Unity.ugui", "Blocks.Gameplay.Core", "Blocks.Gameplay.Shooter", "Unity.Netcode.Runtime"],
   "includePlatforms": ["Editor"],
   "optionalUnityReferences": ["TestAssemblies"]
 }

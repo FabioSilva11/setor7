@@ -43,7 +43,7 @@ namespace Setor07.Editor
             var root = Rect(canvas.transform, "Interface", 0, 0, 1280, 720);
             Stretch(root);
             var group = root.gameObject.AddComponent<CanvasGroup>();
-            group.alpha = 1; group.interactable = false; group.blocksRaycasts = false;
+            group.alpha = 1; group.interactable = true; group.blocksRaycasts = true;
             presentation = root.gameObject.AddComponent<InterfacePresentation>();
             presentation.mockData = data;
             var screens = new GameObject[7];
@@ -61,6 +61,7 @@ namespace Setor07.Editor
             BuildCatalog(screens[6].transform, false);
             presentation.screens = screens;
             presentation.ShowScreen(InterfaceScreen.Lobby);
+            presentation.SetLaunchInteractable(true);
             PrefabUtility.SaveAsPrefabAsset(root.gameObject, PrefabPath);
             Object.DestroyImmediate(root.gameObject);
             BuildLoading(canvas);
@@ -131,10 +132,12 @@ namespace Setor07.Editor
             presentation.mode = Label(launch, "Mode", data.mode, 0, 23, 282, 27, 17, Paper);
             Image(launch, "Divider", 0, 66, 282, 1, Line);
             var team = Button(launch, "Formation · mock", 0, 67, 282, 32, Color.clear);
+            presentation.formationButton = team.GetComponent<Button>();
             Icon(team, "user-round", 0, 8, 14, Hex("9eacb0"));
             presentation.formation = Label(team, "Selected formation", data.formation, 25, 0, 220, 32, 10, Hex("9eacb0"));
             Icon(team, "chevron-down", 268, 9, 12, Hex("9eacb0"));
             var play = Button(launch, "Jogar · future action", 0, 111, 282, 75, Accent);
+            presentation.playButton = play.GetComponent<Button>();
             Label(play, "Title", "J O G A R", 24, 0, 205, 75, 26, Ink, bold: true);
             Label(play, "Arrow", "↗", 231, 0, 28, 75, 28, Ink);
             Label(launch, "Footnote", "▪  SEU PRÓXIMO MOVIMENTO.", 0, 194, 282, 15, 7, Hex("849494"), TextAnchor.MiddleRight);
@@ -146,7 +149,12 @@ namespace Setor07.Editor
             box.anchorMin = box.anchorMax = new Vector2(1, 0); box.anchoredPosition = new Vector2(-358, 443);
             var panel = Border(box, "Panel", 0, 0, 320, 198, Hex("091216"), Hex("233b47"));
             Label(panel, "Title", "FORMAÇÃO DA EQUIPE", 15, 10, 260, 24, 9, Hex("738e9c"), bold: true);
-            Label(panel, "Close · mock", "×", 286, 5, 22, 30, 20, Muted);
+            var close = Label(panel, "Close · mock", "×", 286, 5, 22, 30, 20, Muted);
+            close.raycastTarget = true;
+            presentation.formationCloseButton = close.gameObject.AddComponent<Button>();
+            presentation.formationCloseButton.targetGraphic = close;
+            presentation.formationCloseButton.transition = Selectable.Transition.None;
+            presentation.formationCloseButton.navigation = new Navigation { mode = Navigation.Mode.None };
             Image(panel, "Divider", 15, 42, 290, 1, Hex("1c2e37"));
             Checkbox(panel, "Aceitar pedido", 16, 55, true);
             Checkbox(panel, "Auto-formação", 16, 81, false);
@@ -154,7 +162,12 @@ namespace Setor07.Editor
             for (int i = 0; i < titles.Length; i++)
             {
                 var card = Border(panel, titles[i] + " · mock", 15 + 99 * i, 116, 92, 68, i == 0 ? Hex("28291b") : Hex("0d161b"), i == 0 ? Gold : Hex("203540"));
-                card.gameObject.AddComponent<Button>();
+                var choice = card.gameObject.AddComponent<Button>();
+                choice.navigation = new Navigation { mode = Navigation.Mode.None };
+                if (i == 0) presentation.soloButton = choice;
+                else if (i == 1) presentation.duoButton = choice;
+                else presentation.squadButton = choice;
+                choice.interactable = i == 0;
                 Icon(card, i == 0 ? "user-round" : "user-round-group", 35, 10, 22, i == 0 ? Gold : Muted);
                 Label(card, "Label", titles[i], 0, 38, 92, 22, 11, i == 0 ? Gold : Muted, TextAnchor.MiddleCenter, true);
             }

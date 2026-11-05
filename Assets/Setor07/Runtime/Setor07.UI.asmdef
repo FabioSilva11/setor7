@@ -1,5 +1,5 @@
 {
   "name": "Setor07.UI",
-  "references": ["Unity.ugui"],
+  "references": ["Unity.ugui", "Unity.InputSystem", "Blocks.Gameplay.Core", "Blocks.Gameplay.Shooter", "Unity.Netcode.Runtime"],
   "rootNamespace": "Setor07.UI"
 }

@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 
 namespace Setor07.UI
 {
-    /// <summary>Loads only the visual prefab; never starts the existing gameplay or networking systems.</summary>
+    /// <summary>Loads the lobby and connects its Solo launch to the existing gameplay.</summary>
     public sealed class InterfaceBootstrap : MonoBehaviour
     {
         public string resourcePath = "Setor07/Interface";
@@ -17,6 +19,17 @@ namespace Setor07.UI
         public Sprite loadingBackground;
         public InterfacePresentation Presentation { get; private set; }
         public bool IsReady { get; private set; }
+        private GameplayLaunchController launcher;
+
+        private void Awake()
+        {
+            // Keep this in the lobby scene; Shooter has its own EventSystem.
+            if (Object.FindFirstObjectByType<EventSystem>() == null)
+            {
+                var input = new GameObject("Setor07 UI Input", typeof(EventSystem), typeof(InputSystemUIInputModule));
+                input.GetComponent<InputSystemUIInputModule>().AssignDefaultActions();
+            }
+        }
 
         private IEnumerator Start()
         {
@@ -47,6 +60,10 @@ namespace Setor07.UI
             loadingScreen.transform.SetAsLastSibling();
             Presentation = instance.GetComponent<InterfacePresentation>();
             Presentation.ApplyMockData();
+            Presentation.BindInteractions();
+            launcher = gameObject.AddComponent<GameplayLaunchController>();
+            launcher.Initialize(this);
+            Presentation.PlayRequested += HandlePlayRequested;
             Canvas.ForceUpdateCanvases();
             LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)instance.transform);
             SetProgress(.95f);
@@ -59,8 +76,16 @@ namespace Setor07.UI
             loadingScreen.SetActive(false);
         }
 
-        private void SetProgress(float progress)
+        private void HandlePlayRequested() => launcher.TryLaunch();
+
+        private void OnDestroy()
         {
+            if (Presentation != null) Presentation.PlayRequested -= HandlePlayRequested;
+        }
+
+        internal void SetProgress(float progress)
+        {
+            progress = Mathf.Clamp01(progress);
             if (progressFill != null) progressFill.fillAmount = progress;
             if (loadingLabel != null) loadingLabel.text = "CARREGANDO RECURSOS... " + Mathf.RoundToInt(progress * 100) + "%";
         }

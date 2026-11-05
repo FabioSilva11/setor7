@@ -53,7 +53,10 @@ public static class Setor07AndroidBuild
         Directory.CreateDirectory(Path.GetDirectoryName(output));
         var options = new BuildPlayerOptions
         {
-            scenes = new[] { "Assets/Shooter/TestScenes/[BB] Shooter.unity" },
+            scenes = new[] {
+                "Assets/Setor07/Scenes/Interface.unity",
+                "Assets/Shooter/TestScenes/[BB] Shooter.unity"
+            },
             locationPathName = output,
             target = BuildTarget.Android,
             options = BuildOptions.CompressWithLz4

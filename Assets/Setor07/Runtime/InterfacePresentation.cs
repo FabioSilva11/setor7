@@ -5,7 +5,7 @@ namespace Setor07.UI
 {
     public enum InterfaceScreen { Lobby, Formation, Settings, Inventory, Store, Events, Vault }
 
-    /// <summary>Inspector-driven visual review. Business actions intentionally have no listeners.</summary>
+    /// <summary>Inspector preview with runtime bindings for Solo formation and gameplay launch.</summary>
     [ExecuteAlways]
     public sealed class InterfacePresentation : MonoBehaviour
     {
@@ -15,9 +15,73 @@ namespace Setor07.UI
         public Text operatorName, operatorRole, coins, diamonds, mode, formation;
         public Text[] volumeLabels;
         public Slider[] volumeSliders;
+        public Button formationButton, formationCloseButton, soloButton, duoButton, squadButton, playButton;
 
-        private void OnEnable() { ApplyMockData(); ShowScreen(previewScreen); }
+        public event System.Action PlayRequested;
+
+        private bool interactionsRequested;
+        private bool launchInteractable = true;
+
+        private void OnEnable()
+        {
+            ApplyMockData();
+            ShowScreen(previewScreen);
+            if (Application.isPlaying && interactionsRequested) BindInteractions();
+        }
+        private void OnDisable() { UnbindInteractions(); }
         private void OnValidate() { if (isActiveAndEnabled) { ApplyMockData(); ShowScreen(previewScreen); } }
+
+        public void BindInteractions()
+        {
+            interactionsRequested = true;
+            UnbindInteractions();
+            if (formationButton != null) formationButton.onClick.AddListener(OpenFormation);
+            if (formationCloseButton != null) formationCloseButton.onClick.AddListener(CloseFormation);
+            if (soloButton != null) soloButton.onClick.AddListener(SelectSolo);
+            if (playButton != null) playButton.onClick.AddListener(RequestPlay);
+            SetLaunchInteractable(launchInteractable);
+        }
+
+        public void SetLaunchInteractable(bool interactable)
+        {
+            launchInteractable = interactable;
+            if (formationButton != null) formationButton.interactable = interactable;
+            if (formationCloseButton != null) formationCloseButton.interactable = interactable;
+            if (soloButton != null) soloButton.interactable = interactable;
+            if (playButton != null) playButton.interactable = interactable;
+            if (duoButton != null) duoButton.interactable = false;
+            if (squadButton != null) squadButton.interactable = false;
+        }
+
+        private void UnbindInteractions()
+        {
+            if (formationButton != null) formationButton.onClick.RemoveListener(OpenFormation);
+            if (formationCloseButton != null) formationCloseButton.onClick.RemoveListener(CloseFormation);
+            if (soloButton != null) soloButton.onClick.RemoveListener(SelectSolo);
+            if (playButton != null) playButton.onClick.RemoveListener(RequestPlay);
+        }
+
+        private void OpenFormation()
+        {
+            if (launchInteractable && isActiveAndEnabled) ShowScreen(InterfaceScreen.Formation);
+        }
+
+        private void CloseFormation()
+        {
+            if (launchInteractable && isActiveAndEnabled) ShowScreen(InterfaceScreen.Lobby);
+        }
+
+        private void SelectSolo()
+        {
+            if (!launchInteractable || !isActiveAndEnabled) return;
+            Set(formation, "SOLO");
+            ShowScreen(InterfaceScreen.Lobby);
+        }
+
+        private void RequestPlay()
+        {
+            if (launchInteractable && isActiveAndEnabled) PlayRequested?.Invoke();
+        }
 
         public void ShowScreen(InterfaceScreen screen)
         {
